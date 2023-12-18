@@ -1,0 +1,7 @@
+{
+  "name": "dynamic_qr",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
