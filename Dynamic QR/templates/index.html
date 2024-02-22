@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic QR Code Generator</title>
+</head>
+<body>
+    <h1>Dynamic QR Code Generator</h1>
+    <form action="{{ url_for('generate_qr') }}" method="get">
+        <label for="qr_data">Enter data for QR code:</label>
+        <input type="text" id="qr_data" name="data" required>
+        <br>
+        <label for="filename">Enter filename:</label>
+        <input type="text" id="filename" name="filename" required>
+        <br>
+        <button type="submit">Generate QR Code</button>
+    </form>
+</body>
+</html>
