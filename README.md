@@ -12,6 +12,6 @@ The research conducted is documented within my dissertation, where I delve into 
 <hr>
 
 ## Prerequisites
-* Python 3.x installed on your local machine
+* Python 3. x installed on your local machine
 * Pip package manager
 * Heroku CLI (for deployment)
