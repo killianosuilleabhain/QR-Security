@@ -6,6 +6,18 @@
     <title>Dynamic QR Code Generator</title>
 </head>
 <body>
+    <!-- SHORTENER -->
+    <h1>URL Shortener</h1>
+    <form action="/shorten" method="post">
+        <label for="long_url">Enter URL:</label>
+        <input type="url" id="long_url" name="long_url" required>
+        <button type="submit">Shorten</button>
+    </form>
+    {% if short_url %}
+        <p>Shortened URL: <a href="{{ url_for('redirect_to_long_url', short_url=short_url) }}">{{ short_url }}</a></p>
+    {% endif %}
+    <!-- SHORTENER -->
+
     <h1>Dynamic QR Code Generator</h1>
     <form action="{{ url_for('generate_qr') }}" method="get">
         <label for="qr_data">Enter data for QR code:</label>
@@ -17,8 +29,6 @@
         <button type="submit">Generate QR Code</button>
     </form>
     
-    <!-- Button for usage.html -->
     <a href="{{ url_for('track_qr_code_usage') }}"><button>View QR Code Usage</button></a>
-
 </body>
 </html>
