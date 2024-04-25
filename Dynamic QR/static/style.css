@@ -29,10 +29,36 @@ input, button {
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc; 
-}
+} 
 
 button {
     background-color: #007bff; 
     color: white;
     cursor: pointer; 
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    background-color: #4516ab; 
+    color: #ffffff;
+    padding: 10px 0; 
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.2); 
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #4516ab; 
+    color: #ffffff;
+    padding: 10px 0; 
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.2); 
+}
+

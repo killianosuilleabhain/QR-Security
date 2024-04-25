@@ -7,6 +7,10 @@
     <title>Dynamic QR Code Generator</title>
 </head>
 <body>
+    <div class="header">
+        <h1>QR Generator</h1>
+    </div>
+
     <!-- Form to shorten the original URL -->
     <form action="/shorten" method="post">
         <h1>URL Shortener</h1>
@@ -35,12 +39,15 @@
         <button type="submit">Generate QR Code</button>
     </form>
     
-    <!-- Form which holds quick info and link to the usage statistics -->
-    <form>
+    <form action="{{ url_for('track_qr_code_usage') }}" method="get">  <!-- Changed method to 'get' -->
         <h1>Statistics</h1>
-        <p>TIP: To get tracking within a QR code you must shorten the URL and use the new URL when enetering the QR code data </p>
-        <a href="{{ url_for('track_qr_code_usage') }}"><button>View QR Code Usage</button></a>
+        <p>TIP: To get tracking within a QR code you must shorten the URL and use the new URL when entering the QR code data.</p>
+        <button type="submit">View QR Code Usage</button>  <!-- Changed button text and functionality -->
     </form>
+
+    <div class="footer">
+        <a href="/logout"><button>Logout</button></a>
+    </div>
 
 </body>
 </html>
@@ -50,10 +57,7 @@
         // Select the text field
         var copyText = document.getElementById("shortUrl"); 
         copyText.select();
-    
-        // Copy the text 
         navigator.clipboard.writeText(copyText.value);
-    
         // Alert user taht the URL has been copied 
         alert("Copied the text: " + copyText.value);
     }

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, send_file
+from flask import Flask, render_template, request, redirect, send_file, url_for, session
 from flask_pymongo import PyMongo
 from werkzeug.utils import secure_filename
 import qrcode
@@ -8,6 +8,7 @@ import base64
 
 # Connect to my own MongoDB 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 app.config['MONGO_URI'] = 'mongodb+srv://kos:k0s@cluster0.g6zcayw.mongodb.net/database'
 mongo = PyMongo(app)
 
@@ -15,14 +16,32 @@ mongo = PyMongo(app)
 url_collection = mongo.db.urls
 qr_codes_collection = mongo.db.qr_codes  
 
-# Shorten the URL to 5
+# Shorten the URL to 8
 def generate_short_url(url):
     return shortuuid.uuid()[:8]
 
 # Route for Home page
 @app.route('/')
 def index():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))  # Redirect to login if not logged in
     return render_template('index.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] == 'StudentATU' and request.form['password'] == 'x@A[!|s167B6':  # Check credentials
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+        else:
+            error = 'Invalid credentials. Please try again.'
+    return render_template('login.html', error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
 
 # Url Shortneing
 @app.route('/shorten', methods=['POST'])
@@ -89,7 +108,9 @@ def generate_qr():
 @app.route('/track_qr_code_usage')
 def track_qr_code_usage():
     qr_code_list = list(qr_codes_collection.find())
-    return render_template('usage.html', qr_code_list=qr_code_list)
+    urls = list(url_collection.find())  # Fetching URL data from the MongoDB
+    return render_template('usage.html', qr_code_list=qr_code_list, urls=urls)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

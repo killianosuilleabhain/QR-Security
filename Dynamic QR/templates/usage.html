@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Usage Tracking</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>QR Code Usage</title>
 </head>
 <body>
-    <h1>QR Code Usage Tracking</h1>
-    <table border="1">
-        <tr>
-            <th>Data</th>
-            <th>Filename</th>
-            <th>Uses</th>
-        </tr>
-        {% for qr_code in qr_code_list %}
-        <tr>
-            <td>{{ urls.long_url }}</td>
-            <td>{{ qr_code.filename }}</td>
-            <td>{{ qr_code.uses }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="header">
+        <h1>QR Code Usage Report</h1>
+    </div>
 
-     <!-- <a href="{{ url_for('generate_qr') }}"><button>Back to QR Code Generator</button></a>  -->
+    {% for qr in qr_code_list %}
+    <div>
+        <img src="data:image/png;base64,{{ qr.qr_code }}" alt="QR Code for {{ qr.original_url }}">
+        <p>File Name: {{ qr.filename }}</p>
+        <p>URL: {{ qr.original_url }}</p>
+    </div>
+    {% endfor %}
 
+    {% for url in urls %}
+    <div>
+        <p>Original URL: <a href="{{ url.long_url }}">{{ url.long_url }}</a></p>
+        <p>Short URL: <a href="{{ request.host_url + url.short_url }}">{{ request.host_url + url.short_url }}</a></p>
+        <p>Clicks: {{ url.clicks }}</p>
+    </div>
+    {% endfor %}
 
+    <div class="footer">
+        <a href="{{ url_for('index') }}"><button>Go to Home Page</button></a>
+    </div>
 </body>
 </html>
