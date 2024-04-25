@@ -24,20 +24,22 @@ def generate_short_url(url):
 @app.route('/')
 def index():
     if not session.get('logged_in'):
-        return redirect(url_for('login'))  # Redirect to login if not logged in
+        return redirect(url_for('login')) 
     return render_template('index.html')
 
+# Login Route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] == 'StudentATU' and request.form['password'] == 'x@A[!|s167B6':  # Check credentials
+        if request.form['username'] == 'StudentATU' and request.form['password'] == 'x@A[!|s167B6': 
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
             error = 'Invalid credentials. Please try again.'
     return render_template('login.html', error=error)
 
+# Logout Route
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
@@ -86,7 +88,7 @@ def generate_qr():
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
     
-    # Save QR to by encoding it 
+    # Save QR by encoding it 
     buf = io.BytesIO()
     img.save(buf)
     buf.seek(0)
@@ -111,6 +113,6 @@ def track_qr_code_usage():
     urls = list(url_collection.find())  # Fetching URL data from the MongoDB
     return render_template('usage.html', qr_code_list=qr_code_list, urls=urls)
 
-
+# Debugger + Entry Point
 if __name__ == '__main__':
     app.run(debug=True)

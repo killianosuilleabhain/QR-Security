@@ -24,19 +24,21 @@ form {
     margin: 10px; 
 }
 
-/* Style inputs and submit button */
+/* Styling input & submit */
 input, button {
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc; 
 } 
 
+/* Button Styling */
 button {
     background-color: #007bff; 
     color: white;
     cursor: pointer; 
 }
 
+/* Footer Styling */
 .footer {
     position: fixed;
     left: 0;
@@ -50,6 +52,7 @@ button {
     box-shadow: 0 -1px 5px rgba(0,0,0,0.2); 
 }
 
+/* Styling for Header */
 .header {
     position: fixed;
     left: 0;
@@ -62,3 +65,10 @@ button {
     box-shadow: 0 -1px 5px rgba(0,0,0,0.2); 
 }
 
+/* img Styling */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
