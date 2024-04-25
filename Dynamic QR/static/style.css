@@ -1,38 +1,38 @@
 /* Set the background color of the entire page */
 body {
-    background-color: #6b36dd; /* Light purple background */
+    background-color: #6b36dd; 
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Use the full height of the viewport */
-    gap: 20px; /* Adds space between each form */
+    height: 100vh; 
+    gap: 20px; 
 }
 
 /* Styling for each form */
 form {
-    background-color: #ffffff; /* White background for the form */
+    background-color: #ffffff; 
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Shadow around the form */
-    width: 300px; /* Fixed width for the form */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    width: 300px; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between form elements */
-    margin: 10px; /* Adds margin around each form */
+    gap: 10px; 
+    margin: 10px; 
 }
 
 /* Style inputs and submit button */
 input, button {
     padding: 10px;
     border-radius: 4px;
-    border: 1px solid #ccc; /* Light grey border */
+    border: 1px solid #ccc; 
 }
 
 button {
-    background-color: #007bff; /* Bootstrap blue for the button */
+    background-color: #007bff; 
     color: white;
-    cursor: pointer; /* Cursor indicates button */
+    cursor: pointer; 
 }
