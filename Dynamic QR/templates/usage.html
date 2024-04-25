@@ -15,14 +15,14 @@
         </tr>
         {% for qr_code in qr_code_list %}
         <tr>
-            <td>{{ qr_code.data }}</td>
+            <td>{{ urls.long_url }}</td>
             <td>{{ qr_code.filename }}</td>
             <td>{{ qr_code.uses }}</td>
         </tr>
         {% endfor %}
     </table>
 
-     <a href="{{ url_for('track_qr_code_usage') }}"><button>Back to QR Code Generator</button></a> 
+     <!-- <a href="{{ url_for('generate_qr') }}"><button>Back to QR Code Generator</button></a>  -->
 
 
 </body>
