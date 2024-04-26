@@ -18,16 +18,20 @@ The research conducted is documented within my dissertation, where I delve into 
 
 ### First Steps 
 1. Clone the repository to your local machine:
-Copy [(https://github.com/killianosuilleabhain/QR-Security.git)] code
+
+[(https://github.com/killianosuilleabhain/QR-Security.git)]
 
 2. Navigate to the project directory
-Copy [(cd QR-Security)] code
+
+[(cd QR-Security)] 
 
 3. Install the required Python dependencies
-Copy [(pip install -r requirements.txt)] code
+
+[(pip install -r requirements.txt)] 
 
 ### Running Locally
 1. Run the Flask application locally
-Copy [(python main.py)] code
+
+[(python main.py)]
 
 
