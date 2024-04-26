@@ -30,13 +30,16 @@ cd QR-Security
 pip install -r requirements.txt
 
 ### Running Locally
-1. Run the Flask application locally within the terminal
+1. Run the Flask application locally within the terminal makinhg sure you are in the correct directory.
 
 python main.py
 
 2. The application should start up from there either control click the link given or search the following in your brower
 
 http://127.0.0.1:5000
+
+3. To acces past the login page enter the following be sure to cite the password.txt file.
+
 
 
 

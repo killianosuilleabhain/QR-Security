@@ -7,6 +7,7 @@
     <title>Dynamic QR Code Generator</title>
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
         <h1>QR Generator</h1>
     </div>
@@ -39,12 +40,14 @@
         <button type="submit">Generate QR Code</button>
     </form>
     
-    <form action="{{ url_for('track_qr_code_usage') }}" method="get">  <!-- Changed method to 'get' -->
+    <!-- Form for the Statistics Page -->
+    <form action="{{ url_for('track_qr_code_usage') }}" method="get">  
         <h1>Statistics</h1>
         <p>TIP: To get tracking within a QR code you must shorten the URL and use the new URL when entering the QR code data.</p>
-        <button type="submit">View QR Code Usage</button>  <!-- Changed button text and functionality -->
+        <button type="submit">View QR Code Usage</button>  
     </form>
 
+    <!-- Footer -->
     <div class="footer">
         <a href="/logout"><button>Logout</button></a>
     </div>

@@ -6,11 +6,14 @@
     <title>QR Code Usage</title>
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
         <h1>QR Code Usage Report</h1>
     </div>
 
+    <!-- Displaying the QR Information and Statistics  -->
     <form>
+    <!-- Displays the URL -->
     {% for qr in qr_code_list %}
     <div>
         <img src="data:image/png;base64,{{ qr.qr_code }}" alt="QR Code for {{ qr.original_url }}">
@@ -19,6 +22,7 @@
     </div>
     {% endfor %}
 
+    <!-- Displays the Shortned -->
     {% for url in urls %}
     <div>
         <p>Original URL: <a href="{{ url.long_url }}">{{ url.long_url }}</a></p>
@@ -28,6 +32,7 @@
     {% endfor %}
     </form>
 
+    <!-- Footer -->
     <div class="footer">
         <a href="{{ url_for('index') }}"><button>Go to Home Page</button></a>
     </div>

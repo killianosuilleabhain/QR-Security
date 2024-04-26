@@ -110,7 +110,7 @@ def generate_qr():
 @app.route('/track_qr_code_usage')
 def track_qr_code_usage():
     qr_code_list = list(qr_codes_collection.find())
-    urls = list(url_collection.find())  # Fetching URL data from the MongoDB
+    urls = list(url_collection.find()) 
     return render_template('usage.html', qr_code_list=qr_code_list, urls=urls)
 
 # Debugger + Entry Point
